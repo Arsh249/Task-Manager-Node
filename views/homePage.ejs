@@ -3,15 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
+    <style>
+      body {
+            background-image: url('https://th.bing.com/th?id=OIP.OGDSchzJA1-FjGL5w0H6xwHaEm&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: space-around;
+            /* background-position: center; */
+          }
+      button{
+        border: none;
+        border-radius: 20px;
+        font-weight: bolder;
+        padding: 25px;
+        width: 400px;
+        background-color: white;
+        color: rgb(62, 61, 56);
+        font-size: 20px;
+        margin-top: 50px;
+        cursor: pointer;
+      }
+      .container {   
+        padding: 55px;   
+        margin-bottom: 50px;  
+    } 
+    </style>
 </head>
 <body>
-    <form action='/register' method="GET">
-        <button> Register <button>
+     <form action='/register' method="GET">
+      <div class="container">
+        <button> Register </button>
+        </div>
       </form>
 
+
       <form action='/login' method="GET">
-        <button> Login <button>
+        <div class="container">
+        <button> Login </button>
+        </div>
       </form>
 </body>
 </html>

@@ -6,54 +6,71 @@
 <style>   
 Body {  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
+  background-color: rgb(247, 255, 192);  
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
 }  
 button {   
-       background-color: #4CAF50;   
-       width: 100%;  
-        color: orange;   
+       background-color: #4c89af;   
+       width: 20%;  
+       border-radius: 50px;
+       
+        color: black;   
+        font-size: large;
         padding: 15px;   
-        margin: 10px 0px;   
+        margin: 10px 0px 10px 100px;   
         border: none;   
         cursor: pointer;   
          }   
  form {   
-        border: 3px solid #f1f1f1;   
+        border: none;   
+        text-align: center;
     }   
  input[type=text], input[type=password] {   
-        width: 100%;   
-        margin: 8px 0;  
+        width: 50%;   
+        margin: 8px 0px 30px 0px;  
         padding: 12px 20px;   
         display: inline-block;   
         border: 2px solid green;   
-        box-sizing: border-box;   
+        box-sizing: border-box; 
+        border-radius: 10px;  
     }  
+ label[for="password"] {
+  margin-right: 60px;
+ }
  button:hover {   
         opacity: 0.7;   
-    }   
-  .cancelbtn {   
-        width: auto;   
-        padding: 10px 18px;  
-        margin: 10px 5px;  
-    }   
-        
-     
+    }       
+    h1{
+        text-align: center;
+    }
  .container {   
-        padding: 25px;   
-        background-color: lightblue;  
+        padding: 35px;   
+        background-color: rgb(247, 255, 192);  
+        width: 90%;
     }   
 </style>   
 </head>    
 <body>    
-    <center> <h1> Login Form </h1> </center>   
+    <h1> Login Form </h1>
     <form action='/login' method="POST">  
         <div class="container">   
             <label for="loginId">Email or Username : </label>   
-            <input type="text" placeholder="Enter Email or Username" name="loginId" id="loginId" required>  
+            <input type="text" placeholder="Enter Email or Username" name="loginId" id="loginId" required> 
+            <br/> 
             <label for="password">Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>  
-            <button type="submit">Login</button>   
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+            <br/>  
+            <button type="submit">Login</button> 
+        </div>    
+    </form>  
+
+    <form action='/register' method="GET">  
+        <div class="container">
+          <button type="submit">Don't have an account? Register here!</button>  
         </div>   
-    </form>     
+      </form> 
+    
 </body>     
 </html> 
