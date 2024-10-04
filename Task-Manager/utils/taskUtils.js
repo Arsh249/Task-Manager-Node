@@ -88,7 +88,7 @@ const sendVerificationMail = (email, token) => {
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
             <tr>
               <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
-                <p style="margin: 0;">&reg; Someone, somewhere 2021<br/>
+                <p style="margin: 0;">&reg; Arsh Ilahi, created somewhere in 2024<br/>
                <a href="" style="color: #ffffff;">Subscribe</a> to us!</p>
               </td>
               </tr>

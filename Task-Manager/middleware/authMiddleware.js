@@ -8,3 +8,9 @@ const isAuth = (req, res, next) => {
 }
 
 module.exports = isAuth;
+
+// name in mail
+// pagination
+// resend verif mail
+// forget pass
+// login n signupbutton redirect
