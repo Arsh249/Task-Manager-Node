@@ -109,7 +109,21 @@ app.get("/verifytoken/:token", async (req, res) => {
       { email: email },
       { isEmailVerified: true }
     );
-    return res.send("Email has been verified successfully");
+    return res.send(`
+      <html>
+        <head>
+          <script>
+            setTimeout(function() {
+              window.location.href = '/login'; // Redirect to login after 2 seconds
+            }, 2000);
+          </script>
+        </head>
+        <body>
+          <h1>Email has been verified successfully!</h1>
+          <p>You will be redirected to the login page shortly...</p>
+        </body>
+      </html>
+    `);
   } catch (error) {
     return res.status(500).json(error);
   }
