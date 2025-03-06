@@ -6,43 +6,133 @@
     <title>Home Page</title>
     <style>
       body {
-            background-image: url('https://th.bing.com/th?id=OIP.OGDSchzJA1-FjGL5w0H6xwHaEm&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2');
+            background-image: url('https://images.unsplash.com/photo-1630313347909-7f8460bc9035?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-repeat: no-repeat;
             background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
-            justify-content: space-around;
-            /* background-position: center; */
-          }
-      button{
-        border: none;
-        border-radius: 20px;
-        font-weight: bolder;
-        padding: 25px;
-        width: 400px;
-        background-color: white;
-        color: rgb(62, 61, 56);
-        font-size: 20px;
-        margin-top: 50px;
-        cursor: pointer;
-      }
-      .container {   
-        padding: 55px;   
-        margin-bottom: 50px;  
-    } 
+            justify-content: center;
+            align-items: center;
+            gap: 190px;
+            /* background: linear-gradient(135deg, #1e3c72, #2a5298); */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin: 10px;
+        }
+
+        /* Base Button Styles */
+        button {
+            position: relative;
+            padding: 20px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        /* Register Button */
+        button[type="submit"][formaction="/register"] {
+            background: linear-gradient(45deg, #e25b60, #fad0c4);
+        }
+
+        /* Login Button */
+        button[type="submit"][formaction="/login"] {
+            background: linear-gradient(45deg, #7190c7, #fbc2eb);
+        }
+
+        /* Hover Effects */
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        button:hover::before {
+            opacity: 1;
+        }
+
+        /* Ripple Effect on Click */
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        button:active::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Glow Effect */
+        button:hover {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 154, 158, 0.7), 0 0 20px rgba(255, 154, 158, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 154, 158, 0.9), 0 0 40px rgba(255, 154, 158, 0.7);
+            }
+        }
+
+        button[type="submit"][formaction="/login"]:hover {
+            animation: glow-login 1.5s infinite alternate;
+        }
+
+        @keyframes glow-login {
+            0% {
+                box-shadow: 0 0 10px rgba(166, 193, 238, 0.7), 0 0 20px rgba(166, 193, 238, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(166, 193, 238, 0.9), 0 0 40px rgba(166, 193, 238, 0.7);
+            }
+        }
     </style>
 </head>
 <body>
-     <form action='/register' method="GET">
-      <div class="container">
-        <button> Register </button>
-        </div>
-      </form>
-
-
-      <form action='/login' method="GET">
+    <form action='/register' method="GET">
         <div class="container">
-        <button> Login </button>
+            <button type="submit" formaction="/register">Register</button>
         </div>
-      </form>
+    </form>
+
+    <form action='/login' method="GET">
+        <div class="container">
+            <button type="submit" formaction="/login">Login</button>
+        </div>
+    </form>
 </body>
 </html>

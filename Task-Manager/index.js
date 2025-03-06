@@ -47,7 +47,7 @@ app.get('/register', (req, res) => {
     return res.render('registerPage')
 })
 app.post('/register', async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const {name, email,  username, password} = req.body;
 
     try {
@@ -85,7 +85,7 @@ app.post('/register', async (req, res) => {
         const userDb = await userObj.save();
 
         const token = generateToken(email)
-        console.log(token);
+        // console.log(token);
 
         sendVerificationMail(email, token)
 
@@ -99,10 +99,10 @@ app.post('/register', async (req, res) => {
 })
 
 app.get("/verifytoken/:token", async (req, res) => {
-  console.log(req.params.token);
+  // console.log(req.params.token);
   const token = req.params.token;
   const email = jwt.verify(token, process.env.SECRET_KEY);
-  console.log(email);
+  // console.log(email);
 
   try {
     await userModel.findOneAndUpdate(
@@ -172,14 +172,10 @@ app.post('/login', async(req, res) => {
 
     return res.redirect("/dashboard");
   } 
-  
+
   catch (error) {
     return res.status(500).json(console.error());
-  }
-
-
-
-  
+  }  
 })
 
 app.get('/dashboard', isAuth ,async(req, res) => { 
@@ -282,7 +278,7 @@ app.post("/edit-item", isAuth, async (req, res) => {
 
   try {
     const todoDb = await todoModel.findOne({ _id: todoId });
-    console.log(todoDb);
+    // console.log(todoDb);
 
     if (!todoDb) {
       return res.send({
@@ -292,7 +288,7 @@ app.post("/edit-item", isAuth, async (req, res) => {
     }
 
     //check the ownership
-    console.log(username, todoDb.username);
+    // console.log(username, todoDb.username);
     if (username !== todoDb.username) {
       return res.send({
         status: 403,
@@ -329,7 +325,7 @@ app.post("/delete-item", isAuth, async (req, res) => {
 
   try {
     const todoDb = await todoModel.findOne({ _id: todoId });
-    console.log(todoDb);
+    // console.log(todoDb);
 
     if (!todoDb) {
       return res.send({
@@ -339,7 +335,7 @@ app.post("/delete-item", isAuth, async (req, res) => {
     }
 
     //check the ownership
-    console.log(username, todoDb.username);
+    // console.log(username, todoDb.username);
     if (username !== todoDb.username) {
       return res.send({
         status: 403,

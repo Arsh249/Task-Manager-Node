@@ -4,46 +4,122 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title> Register Page </title>  
 <style>   
-Body {  
+body {  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: rgb(247, 255, 192);  
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a6c1ee, #fbc2eb); /* Gradient background */
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0px;
 }  
+
+h1 {
+  text-align: center;
+  color: #4c89af;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {   
+  border: none;   
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+} 
+
+input[type=text], input[type=password] {   
+  width: 100%;   
+  margin: 8px 0px 10px 0px;  
+  padding: 12px 20px;   
+  display: inline-block;   
+  border: 2px solid #4c89af;   
+  box-sizing: border-box; 
+  border-radius: 10px;   
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}  
+
+input[type=text]:focus, input[type=password]:focus {   
+  border-color: #2a5298;
+  box-shadow: 0 0 8px rgba(76, 137, 175, 0.5);
+  outline: none;
+}  
+
 button {   
-        background-color: #4c89af;   
-        width: 20%;  
-        border-radius: 50px;
-        color: black;   
-        font-size: large;
-        padding: 15px;   
-        margin: 10px 0px 10px 580px;   
-        border: none;   
-        cursor: pointer;   
-        }   
- form {   
-        border: none;   
-    } 
-    h1{
-        text-align: center;
-    }  
- input[type=text], input[type=password] {   
-        width: 100%;   
-        margin: 8px 0px 10px 0px;  
-        padding: 12px 20px;   
-        display: inline-block;   
-        border: 2px solid green;   
-        box-sizing: border-box; 
-        border-radius: 10px;   
-    }  
- button:hover {   
-        opacity: 0.7;   
-    }      
- .container {   
-        padding: 25px;   
-        background-color: rgb(247, 255, 192);  
-    }   
+  background-color: #4c89af;   
+  width: 100%;  
+  border-radius: 50px;
+  color: white;   
+  font-size: 1.1rem;
+  padding: 15px;   
+  margin: 10px 0px;   
+  border: none;   
+  cursor: pointer;   
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(76, 137, 175, 0.3);
+}   
+
+button:hover {   
+  background-color: #2a5298;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(76, 137, 175, 0.5);
+}  
+
+button:active {   
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(76, 137, 175, 0.3);
+}  
+
+/* .container {   
+  padding: 25px;   
+  background-color: white;  
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}  */
+
+/* Additional Enhancements */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Glow Effect on Hover */
+button:hover {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(76, 137, 175, 0.7), 0 0 20px rgba(76, 137, 175, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(76, 137, 175, 0.9), 0 0 40px rgba(76, 137, 175, 0.7);
+  }
+}
 </style>   
 </head>    
 <body>    
@@ -67,7 +143,7 @@ button {
     </form>     
     <form action='/login' method="GET">  
         <div class="container">
-          <button type="submit">Already have an account?     Login here!</button>  
+          <button type="submit">Already have an account? Login here!</button>  
         </div>   
       </form>
 </body>     
